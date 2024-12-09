@@ -1,0 +1,58 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Card from "../components/Card.astro";
+// export async function getStaticPaths() {
+// const data = await fetch(
+//   "https://mofblnsgwolupthqiwwn.supabase.co/rest/v1/vin_panache?select=*",
+//   {
+//     method: "GET",
+//     headers: {
+//       apikey:
+//         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vZmJsbnNnd29sdXB0aHFpd3duIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMyMzQ3MjUsImV4cCI6MjA0ODgxMDcyNX0.LMFHaUuQ3k7Zjn8e9Zpu3BijbGquG7eQmEjuqPV3-JU",
+//     },
+//   }
+// )
+// .then((res) => res.json());
+// return data.map((product) => ({
+//     params: { slug: product.id },
+//     props: { product },
+//   }));
+// }
+
+// const { data } = Astro.props;
+
+// console.log(data)
+
+const data = await fetch(
+  "https://mofblnsgwolupthqiwwn.supabase.co/rest/v1/vin_panache?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vZmJsbnNnd29sdXB0aHFpd3duIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMyMzQ3MjUsImV4cCI6MjA0ODgxMDcyNX0.LMFHaUuQ3k7Zjn8e9Zpu3BijbGquG7eQmEjuqPV3-JU",
+    },
+  }
+).then((res) => res.json())
+
+
+console.log(data)
+---
+
+<MainLayout metatitle="Vin">
+  <section>
+    {
+      data.map((product) => {
+        return <Card {...product} />;
+      })
+    }
+  </section>
+</MainLayout>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+</style>
+

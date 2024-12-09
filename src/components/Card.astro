@@ -1,0 +1,19 @@
+---
+const { imageURL, Navn, årgang, Land, id } = Astro.props;
+
+if (!id) {
+  throw new Error("Produkt-ID mangler. Sjekk at dataene er riktige.");
+}
+---
+
+<article>
+  {imageURL ? (
+    <img src={imageURL} alt={`Bilde av ${Navn}`} />
+  ) : (
+    <p>Bilde ikke tilgjengelig</p>
+  )}
+  <h3>{Navn ?? "Ukjent navn"}</h3>
+  <p>Årgang: {årgang ?? "Ikke oppgitt"}</p>
+  <p>Land: {Land ?? "Ukjent land"}</p>
+  <a href={`/product/${id}`}>Se mer</a>
+</article>

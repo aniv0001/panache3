@@ -1,0 +1,33 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+//to make it dynamic
+export async function getStaticPaths() {
+  const data = await fetch(
+    `https://mofblnsgwolupthqiwwn.supabase.co/rest/v1/vin_panache?select=*`,
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vZmJsbnNnd29sdXB0aHFpd3duIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMyMzQ3MjUsImV4cCI6MjA0ODgxMDcyNX0.LMFHaUuQ3k7Zjn8e9Zpu3BijbGquG7eQmEjuqPV3-JU",
+      },
+    }
+  ).then((res) => res.json());
+
+  return data.map((product) => ({
+    params: { slug: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+console.log(product);
+---
+
+<MainLayout metatitle={product.Navn}>
+  <h2>{product.Navn}</h2>
+  <img src={product.imageURL} alt="img" />
+  <p>
+    {product.Land}
+  </p>
+</MainLayout>
