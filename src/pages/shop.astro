@@ -51,13 +51,23 @@ console.log(data)
 <style>
   section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
   }
+ 
+  
   a{
     text-decoration: none;
     color: #AB0000;
   
   }
+    @media (max-width: 800px) {
+     section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+    }
+
 </style>
 
