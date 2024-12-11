@@ -3,5 +3,119 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout metatitle="GALLERY">
-  <h1>hei</h1>
+  <div class="gallery_heading1"><h1>Gallery</h1></div>
+  <div class="line"></div>
+
+  <div class="gallery_box">
+  <div class="gallery_img"><img src="/public/bilder/slide2.webp" alt="gallery_img"></div>
+  <div class="gallery_text"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt commodi aperiam, distinctio et officiis, rem quae inventore mollitia ipsum reprehenderit adipisci illum dolore quod consequatur sed. Saepe possimus animi beatae.
+Deleniti ipsum voluptas aspernatur quo est sequi voluptatem, impedit iure. Nisi dolores rerum accusantium, impedit maiores ad iste ipsum nulla totam debitis nihil distinctio ut, voluptates, dolorem veniam a laudantium?
+Quaerat architecto earum modi dolore autem dolores quas, labore nulla rem molestias accusantium consequuntur saepe placeat. Illo repudiandae veritatis voluptatem tempora amet nobis nostrum, quis necessitatibus, ipsum, quasi voluptatibus perspiciatis.</p></div>
+  </div>
+
+ <div class="gallery_heading2"><h1>OVERSKRIFT</h1></div>
+   <div class="line"></div>
+
+     <div class="gallery_text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel molestias error voluptatum doloremque nobis aliquam iure, hic rerum exercitationem, animi eligendi veritatis, quod ducimus aperiam nostrum sint explicabo optio totam.</p></div>
+
+ <div class="slideshow">
+        <div id="slider">
+            <img src="/public/bilder/slide1.webp" alt="Image 1">
+            <img src="/public/bilder/slide1.webp" alt="Image 2">
+            <img src="/public/bilder/slide1.webp" alt="Image 3">
+            <img src="/public/bilder/slide1.webp" alt="Image 4">
+            <img src="/public/bilder/slide1.webp" alt="Image 5">
+            <img src="/public/bilder/slide1.webp" alt="Image 6">
+            <img src="/public/bilder/slide1.webp" alt="Image 7">
+            <img src="/public/bilder/slide1.webp" alt="Image 8">
+            <img src="/public/bilder/slide1.webp" alt="Image 9">
+            <img src="/public/bilder/slide1.webp" alt="Image 10">
+        </div>
+    </div>
+
+
+</div>
 </MainLayout>
+
+<style>
+
+  /****MOBIL VERSION****/
+  @media (max-width: 800px){
+.gallery_heading1{
+  text-align: center;
+}
+.gallery_heading2{
+  text-align: center;
+ padding-top: 10%;
+}
+.line {
+   width: 70%; 
+   height: 1px; 
+   background-color: black; 
+   margin: 20px auto; 
+}
+.gallery_heading{
+  text-align: center;
+  
+}
+.gallery_box{
+margin: 8%;
+}
+.line {
+   width: 70%; 
+   height: 1px; 
+   background-color: black; 
+   margin: 20px auto; 
+}
+  }
+/****DESKTOP VERSION****/
+@media (min-width: 800px){
+  .gallery_heading1{
+  text-align: center;
+ 
+}
+.gallery_heading2{
+  text-align: center;
+ padding-top: 10%;
+}
+.gallery_box{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+}
+
+.slideshow {
+ width: 80%;
+overflow: hidden;
+margin: 0 auto;
+position: relative;
+padding-bottom: 5%;
+}
+.slideshow #slider {
+  display: flex;
+  width: 1000%; /* 10 billeder, 100% per billede */
+  animation: slide 20s infinite;
+}
+
+.slideshow #slider img {
+  width: 10%; /* Juster bredden for at passe til 10 billeder */
+  flex-shrink: 0;
+        }
+@keyframes slide {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(0); }
+  20% { transform: translateX(-10%); }
+  30% { transform: translateX(-10%); }
+  40% { transform: translateX(-20%); }
+  50% { transform: translateX(-20%); }
+  60% { transform: translateX(-30%); }
+  70% { transform: translateX(-30%); }
+  80% { transform: translateX(-40%); }
+  90% { transform: translateX(-40%); }
+  100% { transform: translateX(-50%); }
+        }
+</style>
+<script>
+
+</script>
